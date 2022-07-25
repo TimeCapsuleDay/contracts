@@ -1,4 +1,4 @@
-name: test
+name: Test TimeCapsule Contracts
 
 on: workflow_dispatch
 
