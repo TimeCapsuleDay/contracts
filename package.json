@@ -1,0 +1,23 @@
+{
+  "name": "@timecapsule/contracts",
+  "version": "1.0.0",
+  "description": "Smart Contracts Using TimeCapsule.",
+  "homepage": "https://github.com/alexbakers",
+  "files": [
+    "src/*"
+  ],
+  "scripts": {
+    "build": "forge build",
+    "test": "forge test"
+  },
+  "keywords": [
+    "solidity",
+    "ethereum",
+    "smart",
+    "contracts",
+    "security",
+    "timecapsule"
+  ],
+  "private": true,
+  "license": "MIT"
+}
