@@ -2,7 +2,7 @@
 pragma solidity ^0.8.7;
 
 import "forge-std/Test.sol";
-import "@timecapsule/contracts/TimeToken.sol";
+import "@timecapsule/contracts/token/TimeToken.sol";
 import "@timecapsule/contracts/TimeCapsule.sol";
 
 contract Contract is Test {

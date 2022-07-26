@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.7;
 
-import "@timecapsule/contracts/ITimeCapsule.sol";
+import "@timecapsule/contracts/interfaces/ITimeCapsule.sol";
 
 error TransferFail(address from, address to, address token, uint256 amount);
 error ErrorTimestamp(uint256 createdAt, uint256 packedAt, uint256 unpackedAt);

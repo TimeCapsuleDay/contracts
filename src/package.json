@@ -1,27 +1,19 @@
 {
-  "name": "@timecapsule/foundry",
+  "name": "@timecapsule/contracts",
   "version": "1.0.0",
-  "description": "TimeCapsule Foundry Project.",
+  "description": "TimeCapsule Smart Contracts.",
   "homepage": "https://github.com/TimeCapsuleDay",
   "repository": {
     "type": "git",
     "url": "https://github.com/TimeCapsuleDay/contracts.git"
   },
-  "files": [
-    "src/*"
-  ],
-  "scripts": {
-    "build": "forge build",
-    "test": "forge test"
-  },
   "keywords": [
     "solidity",
     "ethereum",
+    "bittorrent",
     "smart",
     "contracts",
-    "timecapsule",
-    "foundry"
+    "timecapsule"
   ],
-  "private": true,
   "license": "MIT"
 }
