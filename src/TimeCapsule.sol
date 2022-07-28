@@ -189,7 +189,7 @@ contract TimeCapsule is ITimeCapsule {
 
         if (capsule[slug_].walletBalance > 0) {
             (uint256 amount, uint256 fee) = _amount(slug_, 1);
-            capsule[slug_].walletBalance -= amount;
+            capsule[slug_].walletBalance = 0;
             _payments(slug_, amount, fee);
         }
 
@@ -267,6 +267,7 @@ contract TimeCapsule is ITimeCapsule {
             (uint256 amount, uint256 fee) = _amount(slug_, 2);
             capsule[slug_].walletAddress = walletAddress_;
             capsule[slug_].walletBalance -= amount;
+            capsule[slug_].walletBalance -= fee;
             _payments(slug_, amount, fee);
         }
 
@@ -344,11 +345,18 @@ contract TimeCapsule is ITimeCapsule {
     ) internal {
         bool success;
         if (paymentToken_ != address(0)) {
-            success = IToken(paymentToken_).transferFrom(
-                paymentSender_,
-                paymentReceiver_,
-                paymentAmount_
-            );
+            if (paymentSender_ == address(this)) {
+                success = IToken(paymentToken_).transfer(
+                    paymentReceiver_,
+                    paymentAmount_
+                );
+            } else {
+                success = IToken(paymentToken_).transferFrom(
+                    paymentSender_,
+                    paymentReceiver_,
+                    paymentAmount_
+                );
+            }
             if (!success) {
                 revert TransferFail(
                     paymentSender_,
@@ -400,5 +408,6 @@ contract TimeCapsule is ITimeCapsule {
 }
 
 interface IToken {
+    function transfer(address, uint256) external returns (bool);
     function transferFrom(address, address, uint256) external returns (bool);
 }
